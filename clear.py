@@ -14,6 +14,7 @@ unread = []
 
 for i in range(0,len(new)):
     comFlag=0
+    kk=0
     for j in range(0,len(old)):
         #print (old[j],new[i])
         if (new[i]==old[j]):
