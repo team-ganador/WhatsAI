@@ -17,6 +17,7 @@ from threading import Thread
 import os
 import paths
 import reminder
+import getEvent
 
 # Old pages //*[@id="main"]/div[3]/div/div/div[3]/div[19]/div/div
 # New pages //*[@id="main"]/div[3]/div/div/div[2]/div[3]/div/div/div[1]/div
@@ -284,9 +285,9 @@ def respondTo(chatHead, chatName, botHead):
     # Set reminder on 2019-03-31 03:58 for calling 
     elif ('Set reminder on ' in command ):
         details = command[37:]
-        time = command[16:32].replace(' ', 'T')
-        time = time + ':00+05:30'
-        reminder.setreminder(details, EMAIL , time, time)
+        time2 = command[16:32].replace(' ', 'T')
+        time2 = time2 + ':00+05:30'
+        reminder.setreminder(details, EMAIL , time2, time2)
         response = 'Successful'
     else:
         print ('Chatbot generated reply')
@@ -418,10 +419,16 @@ def respondToCommands(botHead,command):
         # Set reminder on 2019-03-31 03:58 for calling 
         elif ('Set reminder on ' in command ):
             details = command[37:]
-            time = command[16:32].replace(' ', 'T')
-            time = time + ':00+05:30'
-            reminder.setreminder(details, EMAIL , time, time)
+            time2 = command[16:32].replace(' ', 'T')
+            time2 = time2 + ':00+05:30'
+            reminder.setreminder(details, EMAIL , time2, time2)
             response = 'Successful'
+        # getting list of upcoming events 
+        #upcoming 02 events from 2019-03-31
+        elif ('upcoming ' in command ):
+            date = command[24:]
+            date = date + 'T01:00:00+05:30'
+            response = getEvent.upComingEvents(int(command[9:11]), date)
         # Terminal
         elif (command == 'Terminal'):
             isCommandMode = True

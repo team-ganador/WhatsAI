@@ -14,3 +14,4 @@ URL = 'file:///home/'+USER+'/Desktop/HINT4/chatbot.html'
 DOWNLOAD_PATH = '/home/'+USER+'/Downloads/'
 SAVING_PATH = '/home/'+USER+'/Desktop/HINT4/'
 START_PATH = '/home/'+USER+'/'
+
